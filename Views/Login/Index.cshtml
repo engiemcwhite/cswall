@@ -1,0 +1,49 @@
+@model wall.Models.User
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Index</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Register</h1>
+            <form asp-controller="Login" asp-action="Register" method="post">
+                <label asp-for="FirstName">First Name:</label>
+                <input asp-for="FirstName"/><br>
+                <label asp-for="LastName">Last Name:</label>
+                <input asp-for="LastName"/><br>
+                <label asp-for="Email">Email:</label>
+                <input asp-for="Email"/><br>
+                <label asp-for="Password">Password:</label>
+                <input asp-for="Password"/><br>
+                <label asp-for="PasswordConfirmation">Password Confirmation:</label>
+                <input asp-for="PasswordConfirmation"><br>
+                <button type="submit">Register</button>
+            </form>
+            <div asp-validation-summary="All"></div>
+            @{
+                if(ViewBag.Test == 1){
+                    <p>@ViewBag.Error2</p>
+                }
+            }
+            
+            <h1>Login</h1>
+            <form action="/login" method="post">
+            <label for="Email">Email</label>
+            <input type="text" name="Email"><br>
+            <label for="Password">Password</label>
+            <input type="password" name="Password"><br>
+            <button type="submit">Log In</button>
+            </form>
+            @{
+                if(ViewBag.TestCase == 2){
+                    <p>@ViewBag.Error</p>
+                }
+            }
+            <br>
+        </div>
+    </body>
+</html>
